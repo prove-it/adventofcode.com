@@ -1,10 +1,8 @@
-santas_map_file = open('inputs/1.txt', 'r')
-
-santas_map = santas_map_file.read()
-santas_map_file.close()
-
 def get_santas_floor(santas_map):
-	return santas_map.count('(') - santas_map.count(')')
+	up_moves = santas_map.count('(')
+	down_moves = len(santas_map) - up_moves
+
+	return up_moves - down_moves
 
 def get_basement_index(santas_map):
 	current_floor = 0
@@ -18,6 +16,10 @@ def get_basement_index(santas_map):
 			break
 
 	return basement_index + 1
+
+santas_map_file = open('inputs/1.txt', 'r')
+santas_map = santas_map_file.read()
+santas_map_file.close()
 
 print get_santas_floor(santas_map)
 print get_basement_index(santas_map)
