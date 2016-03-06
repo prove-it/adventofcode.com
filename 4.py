@@ -1,11 +1,10 @@
 from hashlib import md5
 
 key = 'yzbqklnj'
-start = '00000'
-start_len = len(start)
+start = '000000'
 
 i = 1
-while md5(key + str(i)).hexdigest()[:start_len] != start:
+while not md5(key + str(i)).hexdigest().startswith(start):
     i += 1
 
 print i
