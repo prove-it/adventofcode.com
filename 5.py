@@ -1,3 +1,4 @@
+from modules.files import get_file_content
 import re
 
 def count_of_chars(str, chars):
@@ -36,8 +37,6 @@ def is_nice_string_v2(str):
 def count_nice_strings(str_list, cheking_func):
     return sum(1 for str in str_list if cheking_func(str))
 
-strings_f = open('inputs/5.txt', 'r')
-strings = strings_f.read()
-strings_f.close()
+strings = get_file_content('5.txt')
 
 print count_nice_strings(strings.split('\n'), is_nice_string)

@@ -1,3 +1,5 @@
+from modules.files import get_file_content
+
 def get_list_of_sizes_from_string(str):
 	sizes = [map(int, one_present.split('x')) for one_present in str.split('\n')]
 
@@ -23,9 +25,7 @@ def get_ribbon_length_for_one_present(sizes):
 def get_total_ribbon_length(presents):
 	return sum(get_ribbon_length_for_one_present(present) for present in presents)
 
-presents_sizes_file = open('inputs/2.txt', 'r')
-presents_sizes = presents_sizes_file.read()
-presents_sizes_file.close()
+presents_sizes = get_file_content('2.txt');
 
 sizes_list = get_list_of_sizes_from_string(presents_sizes)
 print get_total_paper_size(sizes_list)

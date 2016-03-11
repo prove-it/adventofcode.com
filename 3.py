@@ -1,3 +1,5 @@
+from modules.files import get_file_content
+
 def get_houses_with_presents(instructions, visited_houses = None):
     moves = {'^': (1, 0), 'v': (-1, 0), '>': (0, 1), '<': (0, -1)}
 
@@ -19,9 +21,7 @@ def get_houses_with_presents(instructions, visited_houses = None):
     return visited_houses
 
 
-santas_navigation_f = open('inputs/3.txt', 'r')
-santas_navigation = santas_navigation_f.read()
-santas_navigation_f.close()
+santas_navigation = get_file_content('3.txt')
 
 #last year
 houses = get_houses_with_presents(santas_navigation)

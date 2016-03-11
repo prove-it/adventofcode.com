@@ -1,3 +1,5 @@
+from modules.files import get_file_content
+
 def get_santas_floor(santas_map):
 	up_moves = santas_map.count('(')
 	down_moves = len(santas_map) - up_moves
@@ -17,9 +19,7 @@ def get_basement_index(santas_map):
 
 	return basement_index + 1
 
-santas_map_file = open('inputs/1.txt', 'r')
-santas_map = santas_map_file.read()
-santas_map_file.close()
+santas_map = get_file_content('1.txt')
 
 print get_santas_floor(santas_map)
 print get_basement_index(santas_map)
