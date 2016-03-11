@@ -1,6 +1,6 @@
 from modules.files import get_file_content
 
-def get_houses_with_presents(instructions, visited_houses = None):
+def houses_with_presents(instructions, visited_houses = None):
     moves = {'^': (1, 0), 'v': (-1, 0), '>': (0, 1), '<': (0, -1)}
 
     if visited_houses is None:
@@ -24,12 +24,12 @@ def get_houses_with_presents(instructions, visited_houses = None):
 santas_navigation = get_file_content('3.txt')
 
 #last year
-houses = get_houses_with_presents(santas_navigation)
+houses = houses_with_presents(santas_navigation)
 print len(houses)
 
 #next year
 santas_map = santas_navigation[::2]
 robosantas_map = santas_navigation[1::2]
-santa_houses = get_houses_with_presents(santas_map)
-total_houses = get_houses_with_presents(robosantas_map, santa_houses)
+santa_houses = houses_with_presents(santas_map)
+total_houses = houses_with_presents(robosantas_map, santa_houses)
 print len(total_houses)
