@@ -31,7 +31,7 @@ class Grid:
     def count_lit_lights(self):
         return ''.join([bin(row) for row in self.grid]).count('1')
 
-class CollerGrid():
+class CoolerGrid():
     def __init__(self, rows=1000, cols=1000):
         self.rows = rows
         self.cols = cols
@@ -83,6 +83,6 @@ grid = Grid()
 grid.make_changes(instr.instructions)
 print grid.count_lit_lights()
 
-cooler_grid = CollerGrid()
+cooler_grid = CoolerGrid()
 cooler_grid.make_changes(instr.instructions)
 print cooler_grid.total_brightness()
