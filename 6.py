@@ -11,14 +11,12 @@ class Grid:
         block_width = inst['end'][1] - inst['start'][1] + 1
         right_lights = self.cols - inst['end'][1] - 1
 
+        changer = int('1' * block_width, base=2) << right_lights
         if inst['action'] == 'turn on':
-            changer = int('1' * block_width, base=2) << right_lights
             func = lambda x, changer: x | changer
         elif inst['action'] == 'turn off':
-            changer = ~(int('1' * block_width, base=2) << right_lights)
-            func = lambda x, changer: x & changer
+            func = lambda x, changer: x & ~changer
         elif inst['action'] == 'toggle':
-            changer = int('1' * block_width, base=2) << right_lights
             func = lambda x, changer: x ^ changer
 
         for row in xrange(inst['start'][0], inst['end'][0] + 1):
