@@ -61,7 +61,7 @@ class Instruction:
         self.instructions = self._transform_text_to_list(text)
 
     def _transform_str_to_dict(self, str):
-        pattern = r'([\w\s]*)\s(\d{1,3})\,(\d{1,3})\s\w*\s(\d{1,3})\,(\d{1,3})'
+        pattern = r'([\w\s]*)\s(\d*)\,(\d*)\s\w*\s(\d*)\,(\d*)'
         m = re.match(pattern, str)
 
         return {
